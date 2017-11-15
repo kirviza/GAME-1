@@ -1,7 +1,7 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2017
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teach", "Teach.csproj", "{FDF70A95-1963-5722-0A49-C9542C2CFE16}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teach", "Assembly-CSharp.csproj", "{1145C187-7105-220B-F52C-9D995F359BBD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,12 +9,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FDF70A95-1963-5722-0A49-C9542C2CFE16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FDF70A95-1963-5722-0A49-C9542C2CFE16}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FDF70A95-1963-5722-0A49-C9542C2CFE16}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FDF70A95-1963-5722-0A49-C9542C2CFE16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1145C187-7105-220B-F52C-9D995F359BBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1145C187-7105-220B-F52C-9D995F359BBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1145C187-7105-220B-F52C-9D995F359BBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1145C187-7105-220B-F52C-9D995F359BBD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal
