@@ -13,6 +13,10 @@ public class RulesScript : MonoBehaviour {
 	public GameObject PlayersText2;
 	public GameObject StepText;
 	public bool Step;
+	public GameObject Tower1;
+	public GameObject Tower2;
+	public GameObject Box;
+
     private bool ChangeStep;
 	private GameObject[] AllCubes;
 
@@ -67,9 +71,17 @@ public class RulesScript : MonoBehaviour {
 							if (Step) {
 								Players2.GetComponent<GamerScript> ().points++;
 								PlayersText2.GetComponent<Text>().text = "Игрок 2: "+Players2.GetComponent<GamerScript> ().points.ToString();
+
+								Box.GetComponent<BoxScript> ().tower = Tower2;
+								Instantiate (Box, new Vector3 (cube.transform.position.x, Camera.main.transform.position.y+10, cube.transform.position.z), Quaternion.identity);
+								//Instantiate(Tower2, new Vector3(cube.transform.position.x, 1, cube.transform.position.z), Quaternion.identity);
 							} else {
 								Players1.GetComponent<GamerScript> ().points++;
 								PlayersText1.GetComponent<Text>().text = "Игрок 1: "+Players1.GetComponent<GamerScript> ().points.ToString();
+
+								Box.GetComponent<BoxScript> ().tower = Tower1;
+								Instantiate (Box, new Vector3 (cube.transform.position.x, Camera.main.transform.position.y+10, cube.transform.position.z), Quaternion.identity);
+								//Instantiate	(Tower1, new Vector3(cube.transform.position.x, 1, cube.transform.position.z), Quaternion.identity);
 							}
 						}
 					}
