@@ -11,6 +11,8 @@ public class CreateField : MonoBehaviour {
     public GameObject cube;
     public GameObject wall;
 
+    private bool helpVal;
+
 	// Use this for initialization
 	void Start () {
         int countCubes = 0;
@@ -32,6 +34,15 @@ public class CreateField : MonoBehaviour {
             for (int j = 0; j < Size_Field-2*i; j++)
             {
                 x++;
+
+                if( j==0 || (j == Size_Field-2*i-1))
+                {
+                    cube.GetComponent<CubesScript>().countWall = 2;
+                }else
+                {
+                    cube.GetComponent<CubesScript>().countWall = 0;
+                }
+
                 Instantiate(cube, new Vector3(-Size_Field/2 - 0.5f + x, 0, 0.5f+z), Quaternion.identity);
             }
             z++;
@@ -46,66 +57,20 @@ public class CreateField : MonoBehaviour {
             for (int j = 0; j < Size_Field - 2 * i; j++)
             {
                 x++;
+
+                if( j==0 || (j == Size_Field-2*i-1))
+                {
+                    cube.GetComponent<CubesScript>().countWall = 2;
+                }else
+                {
+                    cube.GetComponent<CubesScript>().countWall = 0;
+                }
+
+
                 Instantiate(cube, new Vector3(-Size_Field/2 - 0.5f + x, 0, -0.5f-z), Quaternion.identity);
             }
             z++;
         }
-
-        //Выставляю горизонтальные стенки выше оси X
-        z = 0;
-        x = 0;
-        for (int i = 0; i < Size_Field / 2; i++)
-        {
-            x = i;
-            for (int j = 0; j < Size_Field - 2 * i; j++)
-            {
-                x++;
-                Instantiate(wall, new Vector3(-Size_Field / 2 - 0.5f + x, 0.5f, z), Quaternion.identity);
-            }
-            z++;
-        }
-
-        z = 0;
-        x = 0;
-        for (int i = 0; i < Size_Field / 2; i++)
-        {
-            x = i;
-            for (int j = 0; j < Size_Field - 2 * i; j++)
-            {
-                x++;
-                Instantiate(wall, new Vector3(-Size_Field / 2 - 0.5f + x, 0.5f, 1.0f + z), Quaternion.identity);
-            }
-            z++;
-        }
-
-        //Выставляю горизонтальные стенки ниже оси X
-        z = 1;
-        x = 0;
-        for (int i = 0; i < Size_Field / 2; i++)
-        {
-            x = i;
-            for (int j = 0; j < Size_Field - 2 * i; j++)
-            {
-                x++;
-                Instantiate(wall, new Vector3(-Size_Field / 2 - 0.5f + x, 0.5f, -z), Quaternion.identity);
-            }
-            z++;
-        }
-
-        z = 0;
-        x = 0;
-        for (int i = 0; i < Size_Field / 2; i++)
-        {
-            x = i;
-            for (int j = 0; j < Size_Field - 2 * i; j++)
-            {
-                x++;
-                Instantiate(wall, new Vector3(-Size_Field / 2 - 0.5f + x, 0.5f, -1.0f - z), Quaternion.identity);
-            }
-            z++;
-        }
-
-
 
         //Выставляю вертикальные стенки выше оси X
         z = 0;
@@ -116,6 +81,15 @@ public class CreateField : MonoBehaviour {
             for (int j = 0; j < Size_Field + 1 - 2 * i; j++)
             {
                 x++;
+
+				if( j==0 || (j == Size_Field-2*i))
+				{
+					wall.tag = "ConstWallField";
+				}else
+				{
+					wall.tag = "WallField";
+				}
+
                 Instantiate(wall, new Vector3(-Size_Field / 2 - 1 + x, 0.5f, 0.5f + z), new Quaternion(0, Mathf.Sqrt(0.5f), 0, Mathf.Sqrt(0.5f)));
             }
             z++;
@@ -130,7 +104,63 @@ public class CreateField : MonoBehaviour {
             for (int j = 0; j < Size_Field + 1 - 2 * i; j++)
             {
                 x++;
+
+				if( j==0 || (j == Size_Field-2*i))
+				{
+					wall.tag = "ConstWallField";
+				}else
+				{
+					wall.tag = "WallField";
+				}
+
                 Instantiate(wall, new Vector3(-Size_Field / 2 - 1 + x, 0.5f,-0.5f - z), new Quaternion(0, Mathf.Sqrt(0.5f), 0, Mathf.Sqrt(0.5f)));
+            }
+            z++;
+        }
+
+        //Выставляю горизонтальные стенки правее оси Z
+        z = 0;
+        x = 0;
+        for (int i = 0; i < Size_Field / 2; i++)
+        {
+            x = i;
+            for (int j = 0; j < Size_Field + 1 - 2 * i; j++)
+            {
+                x++;
+
+				if( j==0 || (j == Size_Field-2*i))
+				{
+					wall.tag = "ConstWallField";
+				}else
+				{
+					wall.tag = "WallField";
+				}
+
+                Instantiate(wall, new Vector3(0.5f + z , 0.5f,  - Size_Field / 2 - 1 + x), Quaternion.identity);
+            }
+            z++;
+        }
+
+        
+        //Выставляю горизонтальные стенки левее оси Z
+        z = 0;
+        x = 0;
+        for (int i = 0; i < Size_Field / 2; i++)
+        {
+            x = i;
+            for (int j = 0; j < Size_Field + 1 - 2 * i; j++)
+            {
+                x++;
+
+				if( j==0 || (j == Size_Field-2*i))
+				{
+					wall.tag = "ConstWallField";
+				}else
+				{
+					wall.tag = "WallField";
+				}
+
+                Instantiate(wall, new Vector3(-0.5f - z, 0.5f, - Size_Field / 2 - 1 + x), Quaternion.identity);
             }
             z++;
         }
