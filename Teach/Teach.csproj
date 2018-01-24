@@ -81,7 +81,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\scripts\bCameraScript.cs" />
     <Compile Include="Assets\scripts\BoxScript.cs" />
+    <Compile Include="Assets\scripts\CameraController.cs" />
     <Compile Include="Assets\scripts\CreateField.cs" />
     <Compile Include="Assets\scripts\CubesScript.cs" />
     <Compile Include="Assets\scripts\GamerScript.cs" />
