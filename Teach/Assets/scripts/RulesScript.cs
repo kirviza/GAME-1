@@ -16,6 +16,8 @@ public class RulesScript : MonoBehaviour {
 	public GameObject Tower1;
 	public GameObject Tower2;
 	public GameObject Box;
+	public GameObject GhostWall;
+	public GameObject ConstWall;
 
     private bool ChangeStep;
 	private GameObject[] AllCubes;
@@ -59,6 +61,7 @@ public class RulesScript : MonoBehaviour {
             }
             else if (hit.transform.gameObject.tag.Equals("WallField"))
             {
+				Instantiate (GhostWall, hit.transform.gameObject.transform.position, hit.transform.gameObject.transform.rotation);
 				foreach (GameObject cube in AllCubes) 
 				{
 					if (Vector3.Distance (cube.transform.position, hit.transform.gameObject.transform.position) < 1) 
@@ -73,14 +76,14 @@ public class RulesScript : MonoBehaviour {
 								PlayersText2.GetComponent<Text>().text = "Игрок 2: "+Players2.GetComponent<GamerScript> ().points.ToString();
 
 								Box.GetComponent<BoxScript> ().tower = Tower2;
-								Instantiate (Box, new Vector3 (cube.transform.position.x, Camera.main.transform.position.y+10, cube.transform.position.z), Quaternion.identity);
+								Instantiate (Box, new Vector3 (cube.transform.position.x, cube.transform.position.y, cube.transform.position.z), Quaternion.identity);
 								//Instantiate(Tower2, new Vector3(cube.transform.position.x, 1, cube.transform.position.z), Quaternion.identity);
 							} else {
 								Players1.GetComponent<GamerScript> ().points++;
 								PlayersText1.GetComponent<Text>().text = "Игрок 1: "+Players1.GetComponent<GamerScript> ().points.ToString();
 
 								Box.GetComponent<BoxScript> ().tower = Tower1;
-								Instantiate (Box, new Vector3 (cube.transform.position.x, Camera.main.transform.position.y+10, cube.transform.position.z), Quaternion.identity);
+								Instantiate (Box, new Vector3 (cube.transform.position.x, cube.transform.position.y, cube.transform.position.z), Quaternion.identity);
 								//Instantiate	(Tower1, new Vector3(cube.transform.position.x, 1, cube.transform.position.z), Quaternion.identity);
 							}
 						}

@@ -90,7 +90,7 @@ public class CreateField : MonoBehaviour {
 					wall.tag = "WallField";
 				}
 
-                Instantiate(wall, new Vector3(-Size_Field / 2 - 1 + x, 0.5f, 0.5f + z), new Quaternion(0, Mathf.Sqrt(0.5f), 0, Mathf.Sqrt(0.5f)));
+				Instantiate(wall, new Vector3(-Size_Field / 2 - 1 + x, 0.501f, 0.5f + z), new Quaternion(0, Mathf.Sqrt(0.5f), 0, Mathf.Sqrt(0.5f)));
             }
             z++;
         }
@@ -113,7 +113,7 @@ public class CreateField : MonoBehaviour {
 					wall.tag = "WallField";
 				}
 
-                Instantiate(wall, new Vector3(-Size_Field / 2 - 1 + x, 0.5f,-0.5f - z), new Quaternion(0, Mathf.Sqrt(0.5f), 0, Mathf.Sqrt(0.5f)));
+				Instantiate(wall, new Vector3(-Size_Field / 2 - 1 + x, 0.501f,-0.5f - z), new Quaternion(0, Mathf.Sqrt(0.5f), 0, Mathf.Sqrt(0.5f)));
             }
             z++;
         }
@@ -136,7 +136,7 @@ public class CreateField : MonoBehaviour {
 					wall.tag = "WallField";
 				}
 
-                Instantiate(wall, new Vector3(0.5f + z , 0.5f,  - Size_Field / 2 - 1 + x), Quaternion.identity);
+				Instantiate(wall, new Vector3(0.5f + z , 0.501f,  - Size_Field / 2 - 1 + x), Quaternion.identity);
             }
             z++;
         }
@@ -160,7 +160,7 @@ public class CreateField : MonoBehaviour {
 					wall.tag = "WallField";
 				}
 
-                Instantiate(wall, new Vector3(-0.5f - z, 0.5f, - Size_Field / 2 - 1 + x), Quaternion.identity);
+                Instantiate(wall, new Vector3(-0.5f - z, 0.501f, - Size_Field / 2 - 1 + x), Quaternion.identity);
             }
             z++;
         }

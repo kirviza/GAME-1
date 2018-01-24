@@ -169,7 +169,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 9
   m_Depth: 0
   m_CullingMask:
@@ -210,10 +210,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b7686d5e5119c14db6ff8ccb20a696e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Heigth_camera: 20
-  Size_Field: 10
+  Heigth_camera: 10
+  Size_Field: 6
   cube: {fileID: 1550882250504474, guid: fa760b2d2f2fb6d469d7494321b87fde, type: 2}
-  wall: {fileID: 1168637431708782, guid: ef76987f78d342f4788720f131cd0973, type: 2}
+  wall: {fileID: 1043940105027278, guid: ce3feb0841e4328479ffc39274d07046, type: 2}
 --- !u!114 &22058276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,6 +234,8 @@ MonoBehaviour:
   Tower1: {fileID: 1277175739471160, guid: b33eb90bb5562114bba48813d5055fc1, type: 2}
   Tower2: {fileID: 1789664500511018, guid: 0c58f521ea18ad446a5a439270b55bc8, type: 2}
   Box: {fileID: 1622320723643108, guid: 61ff823966f4c9d4baae8e87da5946ea, type: 2}
+  GhostWall: {fileID: 1025885632884604, guid: 58dce40d7d7f7254cb5f8c49d8adf7da, type: 2}
+  ConstWall: {fileID: 1478149526218990, guid: 893d50c1433946543bbb2609ea463bd4, type: 2}
 --- !u!1 &365347438
 GameObject:
   m_ObjectHideFlags: 0
