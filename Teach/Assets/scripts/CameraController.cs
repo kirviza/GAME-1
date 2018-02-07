@@ -2,86 +2,98 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class SwipeController
+{
+    public bool isHorizontal;   //Является ли свайп горизонтальным
+    public bool isVerticat;     //Является ли свайп вертикальным
+    public float smooth;        //Пригодится при размытии движения
+    public float maxSpeed;      //Пригодится при размытии движения
+    public float deltaX;        //Перемещение пальца по X
+    public float deltaY;        //Перемещение пальца по Y
+    public int touchCount;      //Количество касаний
+
+
+    public void Swipe()
+    {
+        touchCount = Input.touchCount;
+        if (touchCount != 0)
+        {
+            Vector2 swipe_direction = Input.GetTouch(0).deltaPosition;
+            if (Mathf.Abs(swipe_direction.x) >= Mathf.Abs(swipe_direction.y))
+            {
+                isHorizontal = true;
+                isVerticat = false;
+                deltaX = swipe_direction.x;
+                Debug.Log("HorizontalSwipe");
+            }
+            else
+            {
+                isHorizontal = false;
+                isVerticat = true;
+                deltaY = swipe_direction.y;
+                Debug.Log("VerticalSwipe");
+            }
+        }
+        
+        else
+        {
+            isHorizontal = false;
+            isVerticat = false;
+            deltaX = 0f;
+            deltaY = 0f;
+        }
+
+    }
+
+}
 public class CameraController : MonoBehaviour {
-	public float r; //радиус (расстояние) до центра сферы вращения
+    public SwipeController _swipeC;
+	public float r;                         //радиус (расстояние) до центра сферы вращения
 	public float angle;
-	bool isRotate = false;
-    public Quaternion current;
-    public static Quaternion originRotation;
-    public static Quaternion endRotation;
-    public float deltaX;
-    public bool SwapRight = false;
-    public bool SwapLeft = false;
-    public bool SwapUp = false;
-    public bool SwapDown = false;
-    public int tC;
+    public Vector3 endRotEuler;
+    public float smooth;
+    public Vector3 cRot;                    //CurrentRotaion - текущее врещение в углах Эйлера
+    public float maxSpeed;                  //Для функции размытия
+    public float time;                      //Для функции размытия
+    public bool stop = true;                
+
+    private float speedX;
+    private float speedY;
+    private Vector3 originRotEuler;
+    private Vector3 firstRot;
+    private Vector3 secondRot;
     // Use this for initialization
     void Start () {
-        originRotation = transform.rotation;
-        endRotation = new Quaternion(-0.4619398f, -0.3314136f, -0.1913417f, 0.8001032f);
+        originRotEuler = transform.eulerAngles;
+        secondRot = endRotEuler;
         angle = 0;
-        deltaX = 0;
 	}
 	
 	// Update is called once per frame
     void Update()
     {
-
+        _swipeC.Swipe();
+        cRot = transform.eulerAngles;
+        if (!stop)
+        {
+            float newXangle = Mathf.SmoothDampAngle(cRot.x, endRotEuler.x, ref speedX, time, maxSpeed);
+            float newYangle = Mathf.SmoothDampAngle(cRot.y, endRotEuler.y, ref speedY, time, maxSpeed);
+            transform.eulerAngles = new Vector3(newXangle, newYangle, transform.eulerAngles.z);
+            if ( Mathf.Abs(speedX) < 0.001f) stop = true;
+        }
+        
+        if (_swipeC.isHorizontal)
+        {
+            transform.RotateAround(new Vector3(0, 0, 0), Vector3.up, _swipeC.deltaX*3.5f * Time.deltaTime);
+        }
     }
-    void FixedUpdate() {
-        tC = Input.touchCount;
-        Quaternion cPos = transform.rotation;
-        if (tC == 0)
-        {
-            SwapDown = false;
-            SwapLeft = false;
-            SwapRight = false;
-            SwapUp = false;
-        }
-        current = transform.rotation;
-        if (bCameraScript.isSwitchDown)
-        {
-            angle++;
-            transform.rotation = Quaternion.Slerp(originRotation, endRotation, Time.deltaTime * angle);
-            if (current.x == endRotation.x) {
-                bCameraScript.isSwitchDown = false;
-                angle = 0;
-            }
-        }
-        if (bCameraScript.isSwitchUp)
-        {
-            angle++;
-            transform.rotation = Quaternion.Slerp(cPos, originRotation, Time.deltaTime * angle);
-            if (current.x == originRotation.x) {
-                bCameraScript.isSwitchUp = false;
-                angle = 0;
-            }
-        }
-        if ((bCameraScript.isSwitchDown == false) && (bCameraScript.isSwitchUp == false))
-        {
-            if (tC > 0 && (cPos!=originRotation)) Swipe();
-        }
-        if (SwapRight||SwapLeft)
-        {
+    
 
-            transform.RotateAround(Vector3.up, deltaX * Time.deltaTime);
-        }
-      
-    }
-    public void Swipe()
+    public void CameraGo()
     {
 
-        Vector2 swipe_direction = Input.GetTouch(0).deltaPosition;
-        if (Mathf.Abs(swipe_direction.x) < Mathf.Abs(swipe_direction.y)) {
-            if (swipe_direction.y < 0) { SwapDown = true; Debug.Log("Down"); }
-            else { SwapUp = true; Debug.Log("Up"); }
-            }
-        if (Mathf.Abs(swipe_direction.x) > Mathf.Abs(swipe_direction.y))
-        {
-            if (swipe_direction.x < 0) { SwapLeft = true; Debug.Log("Left"); deltaX = swipe_direction.x; }
-            else { SwapRight = true; Debug.Log("Right"); deltaX = swipe_direction.x; }
-            }
-        
-        
+        if (Mathf.Abs(cRot.x)>1e-3) endRotEuler = originRotEuler; else endRotEuler = secondRot;
+        if (stop) stop = false;
     }
 }

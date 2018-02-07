@@ -18,7 +18,7 @@ public class CreateField : MonoBehaviour {
         int countCubes = 0;
         int x=0, z=0;
        
-        gameObject.transform.SetPositionAndRotation(new Vector3(0, Heigth_camera, 0), new Quaternion(Mathf.Sqrt(0.5f), 0, 0, Mathf.Sqrt(0.5f)));
+        //gameObject.transform.SetPositionAndRotation(new Vector3(0, Heigth_camera, 0), new Quaternion(Mathf.Sqrt(0.5f), 0, 0, Mathf.Sqrt(0.5f)));
 
         //Просчитываю количество кубиков на поле
         for (int i = Size_Field; i > 0; i -= 2)
