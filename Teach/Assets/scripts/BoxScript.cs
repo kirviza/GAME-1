@@ -21,7 +21,7 @@ public class BoxScript : MonoBehaviour {
 
 		if (StartTime>MidTime && !CreateTower) 
 		{
-			Instantiate (tower, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y+0.5f, gameObject.transform.position.z), Quaternion.identity);
+			Instantiate (tower, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y+0.5f, gameObject.transform.position.z), Quaternion.identity, GameObject.Find("GroupTower").transform);
 			CreateTower = !CreateTower;
 		}
 
