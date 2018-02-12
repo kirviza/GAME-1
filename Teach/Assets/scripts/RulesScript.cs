@@ -18,9 +18,13 @@ public class RulesScript : MonoBehaviour {
 	public GameObject Box;
 	public GameObject GhostWall;
 	public GameObject ConstWall;
+	public GameObject GroupButtonYesNo;
+	public GameObject GroupGhostWall;
+	public bool yes_no;
 
     private bool ChangeStep;
 	private GameObject[] AllCubes;
+
 
 	 
 
@@ -38,49 +42,52 @@ public class RulesScript : MonoBehaviour {
 
         Step = false;
         ChangeStep = false;
+		yes_no = false;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetMouseButtonDown(0))
+		if (Input.GetMouseButtonDown(0))// && !yes_no)
         {
 			ChangeStep = false;
 
 			AllCubes = GameObject.FindGameObjectsWithTag ("CubeField");
 
             RaycastHit hit = new RaycastHit();
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			ray.direction = ray.direction * 3.0f;
 
             Physics.Raycast(ray, out hit);
+
 			if (hit.transform == null)
 				return;
-            if (hit.transform.gameObject.tag.Equals("CubeField"))
-            {
-                Debug.Log("Push Cube");
+			
+			if (!hit.transform.gameObject.tag.Equals ("WallField")) {
+				Debug.Log ("Push not wall");
 				return;
-            }
-            else if (hit.transform.gameObject.tag.Equals("WallField"))
-            {
-				Instantiate (GhostWall, hit.transform.gameObject.transform.position, hit.transform.gameObject.transform.rotation);
-				foreach (GameObject cube in AllCubes) 
-				{
-					if (Vector3.Distance (cube.transform.position, hit.transform.gameObject.transform.position) < 1) 
-					{
+			} else if (hit.transform.gameObject.tag.Equals ("WallField")) {
+				Instantiate (GhostWall, hit.transform.gameObject.transform.position, hit.transform.gameObject.transform.rotation, GroupGhostWall.transform);
+
+				Instantiate (GroupButtonYesNo, hit.transform.gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+
+				yes_no = true;
+
+				foreach (GameObject cube in AllCubes) {
+					if (Vector3.Distance (cube.transform.position, hit.transform.gameObject.transform.position) < 1) {
 						cube.GetComponent<CubesScript> ().countWall++;
-						if (cube.GetComponent<CubesScript> ().countWall == 4) 
-						{
+						if (cube.GetComponent<CubesScript> ().countWall == 4) {
 							ChangeStep = true;
 
 							if (Step) {
 								Players2.GetComponent<GamerScript> ().points++;
-								PlayersText2.GetComponent<Text>().text = "Игрок 2: "+Players2.GetComponent<GamerScript> ().points.ToString();
+								PlayersText2.GetComponent<Text> ().text = "Игрок 2: " + Players2.GetComponent<GamerScript> ().points.ToString ();
 
 								Box.GetComponent<BoxScript> ().tower = Tower2;
 								Instantiate (Box, new Vector3 (cube.transform.position.x, cube.transform.position.y, cube.transform.position.z), Quaternion.identity);
 								//Instantiate(Tower2, new Vector3(cube.transform.position.x, 1, cube.transform.position.z), Quaternion.identity);
 							} else {
 								Players1.GetComponent<GamerScript> ().points++;
-								PlayersText1.GetComponent<Text>().text = "Игрок 1: "+Players1.GetComponent<GamerScript> ().points.ToString();
+								PlayersText1.GetComponent<Text> ().text = "Игрок 1: " + Players1.GetComponent<GamerScript> ().points.ToString ();
 
 								Box.GetComponent<BoxScript> ().tower = Tower1;
 								Instantiate (Box, new Vector3 (cube.transform.position.x, cube.transform.position.y, cube.transform.position.z), Quaternion.identity);
@@ -89,9 +96,9 @@ public class RulesScript : MonoBehaviour {
 						}
 					}
 				}
-                Destroy(hit.transform.gameObject);
-                Debug.Log("Delete Wall");
-            }
+				Destroy (hit.transform.gameObject);
+				Debug.Log ("Delete Wall");
+			}
 				
             if(!ChangeStep)
             	Step = !Step;

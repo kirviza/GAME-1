@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f774de5ad77236b4cbec94f7ae7e0b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 1277175739471160, guid: b33eb90bb5562114bba48813d5055fc1, type: 2}
+  tower: {fileID: 1789664500511018, guid: 0c58f521ea18ad446a5a439270b55bc8, type: 2}
   StartTime: 0
   MidTime: 2
   FinishTime: 4
