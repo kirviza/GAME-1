@@ -24,8 +24,11 @@ MonoBehaviour:
 =======
   m_RootView: {fileID: 5}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_MinSize: {x: 950, y: 521}
 =======
+=======
+>>>>>>> 386103e81a2278f089b3cba5c0f4b49d58e1b1ef
 >>>>>>> 17e61ef78664032fff7ea85c7d63f7b1b4f22eed
   m_MinSize: {x: 950, y: 300}
 >>>>>>> 386103e81a2278f089b3cba5c0f4b49d58e1b1ef
@@ -671,6 +674,7 @@ MonoBehaviour:
     m_SearchArea: 0
     m_Folders:
 <<<<<<< HEAD
+<<<<<<< HEAD
     - Assets/texture/Materials
   m_ViewMode: 1
   m_StartGridSize: 32
@@ -678,6 +682,8 @@ MonoBehaviour:
   - Assets/texture/Materials
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> 386103e81a2278f089b3cba5c0f4b49d58e1b1ef
     - Assets/scripts
 =======
     - Assets
@@ -712,6 +718,9 @@ MonoBehaviour:
     m_LastClickedID: 9822
     m_ExpandedIDs: 000000005e260000682600006e26000000ca9a3bffffff7f
 >>>>>>> 17e61ef78664032fff7ea85c7d63f7b1b4f22eed
+<<<<<<< HEAD
+>>>>>>> 386103e81a2278f089b3cba5c0f4b49d58e1b1ef
+=======
 >>>>>>> 386103e81a2278f089b3cba5c0f4b49d58e1b1ef
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -741,13 +750,19 @@ MonoBehaviour:
     m_SelectedIDs: 
     m_LastClickedID: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000622600006c26000072260000
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> 386103e81a2278f089b3cba5c0f4b49d58e1b1ef
     m_ExpandedIDs: 00000000602600006a260000
 =======
     m_ExpandedIDs: 000000005e260000682600006e260000
 >>>>>>> 17e61ef78664032fff7ea85c7d63f7b1b4f22eed
+<<<<<<< HEAD
+>>>>>>> 386103e81a2278f089b3cba5c0f4b49d58e1b1ef
+=======
 >>>>>>> 386103e81a2278f089b3cba5c0f4b49d58e1b1ef
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -780,8 +795,14 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c623000000000000
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c623000000000000
+=======
+    m_HadKeyboardFocusLastEvent: 0
+    m_ExpandedInstanceIDs: c6230000
+>>>>>>> 17e61ef78664032fff7ea85c7d63f7b1b4f22eed
+>>>>>>> 386103e81a2278f089b3cba5c0f4b49d58e1b1ef
 =======
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000
