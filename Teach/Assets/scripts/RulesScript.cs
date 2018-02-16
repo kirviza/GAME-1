@@ -7,27 +7,25 @@ public class RulesScript : MonoBehaviour {
 
     public GameObject playersObject;
     
-    private GameObject Players1;
-    private GameObject Players2;
-	public GameObject PlayersText1;
-	public GameObject PlayersText2;
-	public GameObject StepText;
-	public bool Step;
+	public GameObject Players1;
+	public GameObject Players2;
+	public Text PlayersText1;
+	public Text PlayersText2;
 	public GameObject Tower1;
 	public GameObject Tower2;
+
+	public Text StepText;
+
 	public GameObject Box;
 	public GameObject GhostWall;
-	public GameObject ConstWall;
 	public GameObject GroupButtonYesNo;
 	public GameObject GroupGhostWall;
 	public bool yes_no;
+	public bool Step = false;
 
-    private bool ChangeStep;
-	private GameObject[] AllCubes;
-
-
+	private GameObject createGhostWall;
+	private GameObject createGroupButtonYesNo;
 	 
-
 	// Use this for initialization
 	void Start () {
         Players1 = Instantiate(playersObject);
@@ -40,19 +38,13 @@ public class RulesScript : MonoBehaviour {
 		PlayersText2.GetComponent<Text>().text = "Игрок 2: 0";
 		StepText.GetComponent<Text>().text = "Ходит игрок 1";
 
-        Step = false;
-        ChangeStep = false;
 		yes_no = false;
     }
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetMouseButtonDown(0))// && !yes_no)
+		if (Input.GetMouseButtonDown(0) && !yes_no)
         {
-			ChangeStep = false;
-
-			AllCubes = GameObject.FindGameObjectsWithTag ("CubeField");
-
             RaycastHit hit = new RaycastHit();
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			ray.direction = ray.direction * 3.0f;
@@ -66,48 +58,23 @@ public class RulesScript : MonoBehaviour {
 				Debug.Log ("Push not wall");
 				return;
 			} else if (hit.transform.gameObject.tag.Equals ("WallField")) {
-				Instantiate (GhostWall, hit.transform.gameObject.transform.position, hit.transform.gameObject.transform.rotation, GroupGhostWall.transform);
+				createGhostWall = Instantiate (GhostWall, hit.transform.gameObject.transform.position, hit.transform.gameObject.transform.rotation, GroupGhostWall.transform);
+		
+				createGroupButtonYesNo = Instantiate (GroupButtonYesNo, hit.transform.gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
 
-				Instantiate (GroupButtonYesNo, hit.transform.gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+				createGroupButtonYesNo.GetComponent<YesButtonScript> ().GhostWall = createGhostWall;
+				createGroupButtonYesNo.GetComponent<YesButtonScript> ().Step = Step;
+				if (Step)
+					Box.GetComponent<BoxScript> ().tower = Tower2;
+				else
+					Box.GetComponent<BoxScript> ().tower = Tower1;
 
+				createGroupButtonYesNo.GetComponent<NoButtonScript> ().GhostWall = createGhostWall;
+
+				createGroupButtonYesNo.GetComponent<YesButtonScript> ().Box = Box;
+		
 				yes_no = true;
-
-				foreach (GameObject cube in AllCubes) {
-					if (Vector3.Distance (cube.transform.position, hit.transform.gameObject.transform.position) < 1) {
-						cube.GetComponent<CubesScript> ().countWall++;
-						if (cube.GetComponent<CubesScript> ().countWall == 4) {
-							ChangeStep = true;
-
-							if (Step) {
-								Players2.GetComponent<GamerScript> ().points++;
-								PlayersText2.GetComponent<Text> ().text = "Игрок 2: " + Players2.GetComponent<GamerScript> ().points.ToString ();
-
-								Box.GetComponent<BoxScript> ().tower = Tower2;
-								Instantiate (Box, new Vector3 (cube.transform.position.x, cube.transform.position.y, cube.transform.position.z), Quaternion.identity);
-								//Instantiate(Tower2, new Vector3(cube.transform.position.x, 1, cube.transform.position.z), Quaternion.identity);
-							} else {
-								Players1.GetComponent<GamerScript> ().points++;
-								PlayersText1.GetComponent<Text> ().text = "Игрок 1: " + Players1.GetComponent<GamerScript> ().points.ToString ();
-
-								Box.GetComponent<BoxScript> ().tower = Tower1;
-								Instantiate (Box, new Vector3 (cube.transform.position.x, cube.transform.position.y, cube.transform.position.z), Quaternion.identity);
-								//Instantiate	(Tower1, new Vector3(cube.transform.position.x, 1, cube.transform.position.z), Quaternion.identity);
-							}
-						}
-					}
-				}
-				Destroy (hit.transform.gameObject);
-				Debug.Log ("Delete Wall");
-			}
-				
-            if(!ChangeStep)
-            	Step = !Step;
-
-			if(Step)
-				StepText.GetComponent<Text>().text = "Ходит игрок 2";
-			else
-				StepText.GetComponent<Text>().text = "Ходит игрок 1";
-				
+			}								
         }
 		
 	}

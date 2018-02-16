@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class NoButtonScript : MonoBehaviour {
 
+	public GameObject GhostWall;
+
 	public void Button_Click()
 	{
-		//Debug.Log (gameObject);
+		Destroy (GhostWall);
+		Camera.main.GetComponent<RulesScript> ().yes_no = false;
+		Destroy (gameObject);
 	}
 }
