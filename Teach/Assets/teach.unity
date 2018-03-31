@@ -145,7 +145,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4097438692205524, guid: 7a7a4fce7a31d69428f6c08e21b151f0, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7a7a4fce7a31d69428f6c08e21b151f0, type: 2}
@@ -187,7 +187,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4478509561063772, guid: 8ad240b06ab67a843a4c4e3949470dcb, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ad240b06ab67a843a4c4e3949470dcb, type: 2}
@@ -235,7 +235,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4580952057044892, guid: c471d45e1ecedca4daaba271bee71edc, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114969781446730208, guid: c471d45e1ecedca4daaba271bee71edc,
         type: 2}
@@ -376,7 +376,13 @@ Prefab:
         type: 2}
       propertyPath: Tower2
       value: 
-      objectReference: {fileID: 1789664500511018, guid: 0c58f521ea18ad446a5a439270b55bc8,
+      objectReference: {fileID: 1277175739471160, guid: b33eb90bb5562114bba48813d5055fc1,
+        type: 2}
+    - target: {fileID: 114130601026697968, guid: c471d45e1ecedca4daaba271bee71edc,
+        type: 2}
+      propertyPath: cube
+      value: 
+      objectReference: {fileID: 1739056631978816, guid: 906a763c3cef15542a0a2fef51b9813e,
         type: 2}
     m_RemovedComponents:
     - {fileID: 114156347330259140, guid: c471d45e1ecedca4daaba271bee71edc, type: 2}
@@ -541,7 +547,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4420343289160860, guid: f0cdb4142e9ac0942ada3d389e665674, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f0cdb4142e9ac0942ada3d389e665674, type: 2}
@@ -745,7 +751,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1748161029
 MonoBehaviour:

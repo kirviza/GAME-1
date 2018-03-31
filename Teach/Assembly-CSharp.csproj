@@ -62,7 +62,7 @@
      <Compile Include="Assets\scripts\YesButtonScript.cs" />
      <Compile Include="Assets\scripts\YesNoGroupScript.cs" />
  <Reference Include="Facebook.Unity.Settings">
- <HintPath>D:/GAME-1/Teach/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
+ <HintPath>D:/home/Unity3d/GitHub/GAME-1/Teach/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

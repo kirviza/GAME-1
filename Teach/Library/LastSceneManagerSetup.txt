@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
 - path: Assets/teach.unity
-=======
-- path: Assets/hello.unity
->>>>>>> 7227c3dbf9dd77232263d7fc981c1e4ee1522d97
   isLoaded: 1
   isActive: 1
