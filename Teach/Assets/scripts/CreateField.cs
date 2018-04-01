@@ -18,9 +18,18 @@ public class CreateField : MonoBehaviour {
 	void Start () {
         int countCubes = 0;
         int x=0, z=0;
+        //Роман доводит камеру до ума (или хотя бы пытается)
+        switch (Size_Field)
+        {
+            case 6: gameObject.GetComponent<Camera>().orthographicSize = 5f;    break;
+            case 8: gameObject.GetComponent<Camera>().orthographicSize = 6.6f;   break;
+            case 10: gameObject.GetComponent<Camera>().orthographicSize = 8.2f;  break;
+            case 12: gameObject.GetComponent<Camera>().orthographicSize = 9.8f;  break;
+            default: break;
+        }
 
-		gameObject.GetComponent<Camera> ().orthographicSize = Size_Field;
-       
+
+		// gameObject.GetComponent<Camera> ().orthographicSize = Size_Field;
         //Просчитываю количество кубиков на поле
         for (int i = Size_Field; i > 0; i -= 2)
         {

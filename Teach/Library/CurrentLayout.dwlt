@@ -45,7 +45,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 9
+  controlID: 112
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -254,12 +254,12 @@ MonoBehaviour:
     height: 572
   m_MinSize: {x: 204, y: 221}
   m_MaxSize: {x: 4004, y: 4021}
-  m_ActualView: {fileID: 16}
+  m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
   - {fileID: 16}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -298,18 +298,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/prefabs/3D Models
+    - Assets/scripts
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/prefabs/3D Models
+  - Assets/scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\home\Unity3d\GitHub\GAME-1\Teach
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 84260000
-    m_LastClickedID: 9860
+    m_SelectedIDs: 20270000
+    m_LastClickedID: 10016
     m_ExpandedIDs: 000000007426000084260000aa260000ba26000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -454,9 +454,9 @@ MonoBehaviour:
     height: 551
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
-    m_LastClickedID: 0
-    m_ExpandedIDs: fcfbffff1afcffff00000000c4270000
+    m_SelectedIDs: 14fcffff
+    m_LastClickedID: -1004
+    m_ExpandedIDs: fcfbffff1afcffff00000000d0270000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -538,11 +538,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.29894048, y: 0.37387, z: -0.12868716, w: 0.86850375}
     speed: 2
-    m_Value: {x: 0.29893997, y: 0.37386936, z: -0.12868695, w: 0.8685023}
+    m_Value: {x: 0.2989405, y: 0.37387002, z: -0.12868716, w: 0.8685038}
   m_Size:
-    m_Target: 18.888592
+    m_Target: 22.297852
     speed: 2
-    m_Value: 18.888592
+    m_Value: 22.297852
   m_Ortho:
     m_Target: 1
     speed: 2

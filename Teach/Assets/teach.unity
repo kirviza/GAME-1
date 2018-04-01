@@ -275,7 +275,7 @@ Prefab:
     - target: {fileID: 20653611393862176, guid: c471d45e1ecedca4daaba271bee71edc,
         type: 2}
       propertyPath: orthographic size
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 114130601026697968, guid: c471d45e1ecedca4daaba271bee71edc,
         type: 2}
@@ -384,6 +384,11 @@ Prefab:
       value: 
       objectReference: {fileID: 1739056631978816, guid: 906a763c3cef15542a0a2fef51b9813e,
         type: 2}
+    - target: {fileID: 135157242129932222, guid: c471d45e1ecedca4daaba271bee71edc,
+        type: 2}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114156347330259140, guid: c471d45e1ecedca4daaba271bee71edc, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c471d45e1ecedca4daaba271bee71edc, type: 2}
