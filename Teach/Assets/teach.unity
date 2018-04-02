@@ -370,13 +370,13 @@ Prefab:
         type: 2}
       propertyPath: Tower1
       value: 
-      objectReference: {fileID: 1277175739471160, guid: b33eb90bb5562114bba48813d5055fc1,
+      objectReference: {fileID: 1784101291914600, guid: aeb14f5259434444a9391f9627fedc5c,
         type: 2}
     - target: {fileID: 114969781446730208, guid: c471d45e1ecedca4daaba271bee71edc,
         type: 2}
       propertyPath: Tower2
       value: 
-      objectReference: {fileID: 1277175739471160, guid: b33eb90bb5562114bba48813d5055fc1,
+      objectReference: {fileID: 1842495479646868, guid: acb5bd137ef35624aaecf258b226677f,
         type: 2}
     - target: {fileID: 114130601026697968, guid: c471d45e1ecedca4daaba271bee71edc,
         type: 2}
