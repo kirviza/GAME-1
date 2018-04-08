@@ -14,14 +14,17 @@ public class BoxScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 	}
-	
+
 	// Update is called once per frame
 	void FixedUpdate () {
 		StartTime += Time.deltaTime;
 
 		if (StartTime>MidTime && !CreateTower) 
 		{
-			Instantiate (tower, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y+0.5f, gameObject.transform.position.z), Quaternion.identity, GameObject.Find("GroupTower").transform);
+			int angle = Random.Range (0, 360);
+			Debug.Log (angle);
+			tower.transform.Rotate(0, angle, 0);
+			Instantiate (tower, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y+0.5f, gameObject.transform.position.z), tower.transform.rotation, GameObject.Find("GroupTower").transform);
 			CreateTower = !CreateTower;
 		}
 

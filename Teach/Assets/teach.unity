@@ -77,15 +77,18 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
-    m_PVRFiltering: 0
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
     m_PVRFilteringMode: 1
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
-    m_PVRFilteringAtrousColorSigma: 1
-    m_PVRFilteringAtrousNormalSigma: 1
-    m_PVRFilteringAtrousPositionSigma: 1
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -107,6 +110,8 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
+    debug:
+      m_Flags: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1001 &10547207
 Prefab:
@@ -205,6 +210,16 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114969781446730208, guid: c471d45e1ecedca4daaba271bee71edc,
+        type: 2}
+      propertyPath: Tower1.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114969781446730208, guid: c471d45e1ecedca4daaba271bee71edc,
+        type: 2}
+      propertyPath: Tower2.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4580952057044892, guid: c471d45e1ecedca4daaba271bee71edc, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -370,14 +385,12 @@ Prefab:
         type: 2}
       propertyPath: Tower1
       value: 
-      objectReference: {fileID: 1784101291914600, guid: aeb14f5259434444a9391f9627fedc5c,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 114969781446730208, guid: c471d45e1ecedca4daaba271bee71edc,
         type: 2}
       propertyPath: Tower2
       value: 
-      objectReference: {fileID: 1842495479646868, guid: acb5bd137ef35624aaecf258b226677f,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 114130601026697968, guid: c471d45e1ecedca4daaba271bee71edc,
         type: 2}
       propertyPath: cube
@@ -389,6 +402,30 @@ Prefab:
       propertyPath: m_Radius
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114969781446730208, guid: c471d45e1ecedca4daaba271bee71edc,
+        type: 2}
+      propertyPath: Tower1.Array.data[0]
+      value: 
+      objectReference: {fileID: 1842495479646868, guid: acb5bd137ef35624aaecf258b226677f,
+        type: 2}
+    - target: {fileID: 114969781446730208, guid: c471d45e1ecedca4daaba271bee71edc,
+        type: 2}
+      propertyPath: Tower2.Array.data[0]
+      value: 
+      objectReference: {fileID: 1784101291914600, guid: aeb14f5259434444a9391f9627fedc5c,
+        type: 2}
+    - target: {fileID: 114969781446730208, guid: c471d45e1ecedca4daaba271bee71edc,
+        type: 2}
+      propertyPath: Tower1.Array.data[1]
+      value: 
+      objectReference: {fileID: 1277175739471160, guid: b33eb90bb5562114bba48813d5055fc1,
+        type: 2}
+    - target: {fileID: 114969781446730208, guid: c471d45e1ecedca4daaba271bee71edc,
+        type: 2}
+      propertyPath: Tower2.Array.data[1]
+      value: 
+      objectReference: {fileID: 1789664500511018, guid: 0c58f521ea18ad446a5a439270b55bc8,
+        type: 2}
     m_RemovedComponents:
     - {fileID: 114156347330259140, guid: c471d45e1ecedca4daaba271bee71edc, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c471d45e1ecedca4daaba271bee71edc, type: 2}
